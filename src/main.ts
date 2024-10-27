@@ -17,7 +17,15 @@ async function bootstrap() {
 
   app.use(function (req, res, next) {
 
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000, htps://course-platform-gamma-green.vercel.app');
+    const corsWhitelist = [
+         'http://localhost:3000', 
+         'htps://course-platform-gamma-green.vercel.app'
+    ];
+    if (corsWhitelist.indexOf(req.headers.origin) !== -1) {
+      res.setHeader('Access-Control-Allow-Origin', req.headers.origin );
+      res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    }
+
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
