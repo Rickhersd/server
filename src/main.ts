@@ -19,7 +19,8 @@ async function bootstrap() {
 
     const corsWhitelist = [
          'http://localhost:3000', 
-         'htps://course-platform-gamma-green.vercel.app'
+         'https://course-platform-gamma-green.vercel.app',
+         "https://course-platform-git-main-rickhersds-projects.vercel.app"
     ];
     if (corsWhitelist.indexOf(req.headers.origin) !== -1) {
       res.setHeader('Access-Control-Allow-Origin', req.headers.origin );;
