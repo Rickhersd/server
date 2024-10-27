@@ -10,14 +10,14 @@ async function bootstrap() {
 
   const app = await NestFactory.create(AppModule, { cors: {
     credentials: false,
-    origin: ["http://localhost:3000 "],
+    origin: ["http://localhost:3000", "htps://course-platform-gamma-green.vercel.app"],
     allowedHeaders: ['content-type', 'timezone'],
     methods: ["GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"]
   }});
 
   app.use(function (req, res, next) {
 
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000, htps://course-platform-gamma-green.vercel.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);

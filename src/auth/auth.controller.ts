@@ -35,7 +35,6 @@ export class AuthController {
       password: signInDto.password,
     });
 
-    console.log('ddasd')
     return result;
   }
 
